@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.kkunan.weather">
+
+    <application>
+        <activity
+            android:name=".CurrentWeatherActivity"
+            android:exported="false"
+            android:label="@string/title_activity_current_weather"
+            android:theme="@style/Theme.RGuard" />
+    </application>
+
+</manifest>
