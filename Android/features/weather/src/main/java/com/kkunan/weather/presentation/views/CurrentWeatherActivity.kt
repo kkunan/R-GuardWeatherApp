@@ -24,21 +24,7 @@ import kotlinx.coroutines.launch
 class CurrentWeatherActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        CoroutineScope(Dispatchers.IO).launch {
-            val response = OpenWeatherMapDatasource(
-                service = OpenWeatherService.instance
-            ).getCurrentWeatherByLatLng(
-                GetWeatherByLatLng.Request(
-                    lat = 13.0,
-                    lon = 100.0,
-                    appid = "d287093b4703b8fa65f55b19a355c423"
-                )
-            )
-            println(response)
-        }
-
-
+        
         setContent {
             RGuardTheme {
                 // A surface container using the 'background' color from the theme
