@@ -1,6 +1,5 @@
 package com.kkunan.core.data.exceptions
 
-sealed class ServerException {
-    class NoResponse: ServerException()
+sealed class ServerException: Exception() {
     class BadResponse(val errorMessage: String): ServerException()
 }

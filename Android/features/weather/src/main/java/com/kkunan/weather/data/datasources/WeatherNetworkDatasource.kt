@@ -1,15 +1,21 @@
 package com.kkunan.weather.data.datasources
 
-import com.kkunan.weather.data.models.GetWeatherByLatLngResponse
+import com.kkunan.core.data.exceptions.ServerException
+import com.kkunan.weather.data.models.GetWeatherByLatLng
 import com.kkunan.weather.data.services.OpenWeatherService
-import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
 interface WeatherNetworkDatasource {
-    val response: Flow<GetWeatherByLatLngResponse>
+    suspend fun getCurrentWeatherByLatLng(request: GetWeatherByLatLng.Request): GetWeatherByLatLng.Response
 }
 
 class OpenWeatherMapDatasource @Inject constructor(private val service: OpenWeatherService) :
     WeatherNetworkDatasource {
-    override val response: Flow<GetWeatherByLatLngResponse> = TODO("Not yet implemented")
+    override suspend fun getCurrentWeatherByLatLng(request: GetWeatherByLatLng.Request): GetWeatherByLatLng.Response {
+        return try {
+            service.getWeatherByLatLng(lat = request.lat, lon = request.lon, appId = request.appid)
+        } catch (e: Exception){
+            throw ServerException.BadResponse(e.localizedMessage ?: "")
+        }
+    }
 }

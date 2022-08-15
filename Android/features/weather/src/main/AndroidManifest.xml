@@ -1,13 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.kkunan.weather">
-
+    <uses-permission android:name="android.permission.INTERNET" />
     <application>
         <activity
-            android:name=".CurrentWeatherActivity"
-            android:exported="false"
+            android:name=".presentation.views.CurrentWeatherActivity"
+            android:exported="true"
             android:label="@string/title_activity_current_weather"
-            android:theme="@style/Theme.RGuard" />
+            android:theme="@style/Theme.RGuard" >
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
     </application>
 
 </manifest>
