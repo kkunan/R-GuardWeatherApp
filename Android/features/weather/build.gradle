@@ -12,6 +12,8 @@ android {
         minSdk 23
         targetSdk 32
 
+        buildConfigField 'String', 'OPEN_WEATHER_API_KEY', "\"${project.openweatherapikey}\""
+
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
         vectorDrawables {
