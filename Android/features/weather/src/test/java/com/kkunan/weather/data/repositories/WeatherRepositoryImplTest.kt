@@ -104,7 +104,6 @@ class WeatherRepositoryImplTest {
 
         // act
         val result = repository.nearbyWeather(13.0, 100.0).toList()
-        println(result)
 
         // assert
         assertEquals(null, result[0])
